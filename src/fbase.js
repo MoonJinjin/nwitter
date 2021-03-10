@@ -7,9 +7,12 @@ const firebaseConfig = {
     projectId: "nwitter-8b5eb_URL",
     storageBucket: "nwitter-8b5eb.appspot.com",
     messagingSenderId: "894573354364",
-    appId: "1:894573354364:web:a0d63c18f069e5bc9058f9"
-  };
+    appId: "1:894573354364:web:a0d63c18f069e5bc9058f9",
+};
 
-  firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig)
+}
 
-  export const authService = firebase.auth();
+export const firebaseInstance = firebase;
+export const authService = firebase.auth();
