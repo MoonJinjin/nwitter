@@ -18,10 +18,6 @@ export default ({ refreshUser, userObj, nweetObj }) => {
         const { target: { value } } = event;
         setNewDisplayName(value);
     };
-    const getMyNweets = async () => {
-        const nweets = await dbService.collection("nweets").where("creatorId", "==", userObj.uid).orderBy("createdAt").get();
-        console.log(nweets.docs.map((doc) => doc.data()));
-    };
     const onChangeImg = (event) => {
         const { target: { files }, } = event;
         const theFile = files[0];
@@ -31,10 +27,7 @@ export default ({ refreshUser, userObj, nweetObj }) => {
             setCreatorImg(result);
         };
         reader.readAsDataURL(theFile);
-    }
-    useEffect(() => {
-        getMyNweets();
-    }, []);
+    };
     const onSubmit = async (event) => {
         event.preventDefault();
         if (userObj.displayName !== newDisplayName) { // 이름이 바꼈을 때만

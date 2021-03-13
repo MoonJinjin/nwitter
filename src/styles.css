@@ -198,8 +198,25 @@ form {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.content_top {
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nweet h4 {
+  margin-top: 10px;
   font-size: 14px;
+}
+
+.creator_name {
+  margin-right: 5px;
+}
+
+.create_date {
+  text-align: end;
+  font-size: 12px;
 }
 
 .nweet img {

@@ -58,7 +58,10 @@ const Nweet = ({ nweetObj, isOwner }) => {
                 </>
             ) : (
                 <>
-                    <h4 class="creator_name">{nweetObj.creatorName}</h4>
+                    <view class="content_top">
+                        <view class="creator_name">{nweetObj.creatorName}</view>
+                        <view class="create_date">{new Intl.DateTimeFormat('ko', { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(nweetObj.createdAt)}</view>
+                    </view>
                     <h4>{nweetObj.text}</h4>
                     {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} onClick={onClickImg} />}
                     {isOwner && ( // 내가 작성한 글일 때만 보여짐
