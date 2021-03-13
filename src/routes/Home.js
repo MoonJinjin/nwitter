@@ -3,7 +3,7 @@ import NweetFactory from "components/NweetFactory";
 import { dbService } from "fbase";
 import React, { useEffect, useState } from "react";
 
-const  Home =  ({userObj}) => {
+const Home = ({ userObj }) => {
     const [nweets, setNweets] = useState([]);
     useEffect(() => {
         dbService.collection("nweets").onSnapshot(snapshot => {
@@ -27,6 +27,6 @@ const  Home =  ({userObj}) => {
                 ))}
             </div>
         </div>
-    );    
+    );
 };
 export default Home;
