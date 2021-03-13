@@ -27,6 +27,14 @@ const Nweet = ({ nweetObj, isOwner }) => {
         } = event;
         setNewNweet(value);
     };
+    const onClickImg = async (event) => {
+        var img = document.getElementsByTagName("img");
+        for (var x = 0; x < img.length; x++) {
+            img.item(x).onclick = function () {
+                window.open(this.src);
+            }
+        }
+    }
     return (
         <div className="nweet">
             {editing ? (
@@ -52,7 +60,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
                 <>
                     <h4 class="creator_name">{nweetObj.creatorName}</h4>
                     <h4>{nweetObj.text}</h4>
-                    {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
+                    {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} onClick={onClickImg} />}
                     {isOwner && ( // 내가 작성한 글일 때만 보여짐
                         <div class="nweet__actions">
                             <span onClick={onDeleteClick}>
